@@ -1,0 +1,104 @@
+footer {
+    text-align: center;
+}
+
+.center-this{
+    margin: 0px auto;
+
+}
+
+.score-card{
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.score-card h4{
+}
+
+.score-card-num{
+    font-size: 40px;
+    padding: 0px;
+    font-weight: bold;
+    display: block;
+}
+
+#reset-game-btn{
+    margin-left: 15px;
+}
+
+.type-select{
+
+}
+
+.type-select:hover{
+    background-color: #e6e6e6;
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+.center-col {
+    margin: 0px auto;
+    float: none;
+    text-align: center;
+}
+
+.table-row {
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.row {
+    text-align: center;
+}
+
+#game-area {
+    padding: 0px;
+    overflow: hidden;
+}
+
+#score-history{
+    padding: 0px;
+}
+
+.box-content {
+    font-size: 60px;
+    height: 80px;
+    display: block;
+}
+
+.play-box {
+    text-align: center;
+    height: 80px;
+    padding: 0px;
+    border: 1px solid #eee;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.hover-over:hover {
+    background-color: #f6f6f6;
+}
+
+@media (min-width: 768px) {
+    .box-content {
+        font-size: 80px;
+        height: 120px;
+        padding-top: 5px;
+    }
+    .play-box {
+        height: 120px;
+        padding: 0px;
+    }
+
+    #score-history{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+    /*#game-area{
+        margin: 0px auto;
+        float: none;
+    }*/
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title> Tic Tac Toe </title>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+  <!-- Custom CSS styling -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <div id="content-wrapper">
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+              <div class="sr-only">Toggle navigation</div>
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+              <div class="icon-bar"></div>
+              </button>
+            <a class="navbar-brand" href="#">Tic Tac Toe</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home<div class="sr-only">(current)</div></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <aside class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4> Game Settings </h4>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item type-select"> Human Vs Human </li>
+            <li class="list-group-item type-select"> Human Vs Computer </li>
+            <li class="list-group-item type-select"> Computer Vs Computer </li>
+          </ul>
+          <button class="btn center-this" id="reset-game-btn"> Reset Game </button>
+          <br>
+          <br>
+        </div>
+      </div>
+    </aside>
+    <main class="container col-md-9">
+      <div id="game-area" class="panel panel-default col-sm-8 col-md-6">
+        <div class="panel-heading">
+          <h4> Game Area </h4>
+        </div>
+        <div class="col-xs-12 col-md-12 center-col clearfix panel-body">
+          <div id="top" class="col-md-12 table-row">
+            <div class="col-xs-4 play-box"> <span id="top-l" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="top-m" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="top-r" class="box-content hover-over"></span> </div>
+          </div>
+          <div id="middle" class="col-md-12 table-row">
+            <div class="col-xs-4 play-box"> <span id="mid-l" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="mid-m" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="mid-r" class="box-content hover-over"></span> </div>
+          </div>
+          <div id="bottom" class="col-md-12 table-row">
+            <div class="col-xs-4 play-box"> <span id="bot-l" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="bot-m" class="box-content hover-over"></span> </div>
+            <div class="col-xs-4 play-box"> <span id="bot-r" class="box-content hover-over"></span> </div>
+          </div>
+        </div>
+      </div>
+      <div id="score-history" class="col-xs-12 col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4> Score Area </h4>
+          </div>
+          <div class="panel-body">
+              <div class="col-xs-6 score-card">
+                <h4> Player - X </h4>
+                <span id="player-x" class="score-card-num well"> 0 </span>
+              </div>
+              <div class="col-xs-6 score-card">
+                <h4> Player - O </h4>
+                <span id="player-o" class="score-card-num well"> 0 </span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="container">
+      <small>&copy; 2017</small>
+    </footer>
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="/js/method2.js"></script>
+</body>
+
+</html>
