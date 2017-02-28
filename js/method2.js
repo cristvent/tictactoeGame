@@ -15,7 +15,6 @@ $(document).ready(function () {
         winner = false,
         moveCounter = 0;
 
-
     var scoreX = 0,
         scoreO = 0;
 
@@ -36,7 +35,7 @@ $(document).ready(function () {
     function clickEvents() {
         moveCounter++;
         modifyBox(this);
-        trackGame(this.id);
+        trackGameMoves(this.id);
         checkWinStatus();
 
         // Switch active letter after move
@@ -48,9 +47,13 @@ $(document).ready(function () {
 
     var noWinners = function noWinners() {
         if (winner == false) {
-            clickBoard.style.backgroundColor = "#d9534f";
-            clickBoard.style.color = "white";
+            for (var i = 0; i < classname.length; i++) {
+                var element = document.getElementById(classname[i].id);
+                element.style.backgroundColor = "#d9534f";
+                element.style.color = "white";
+            }
         };
+        clearForNextGame();
     }
 
     var checkWinStatus = function checkWinStatus() {
@@ -89,7 +92,10 @@ $(document).ready(function () {
         (letter == "O") ? scoreHolderO.innerText = ++scoreO: scoreHolderX.innerText = ++scoreX;
         clickBoard.style.pointerEvents = "none";
         winner = true;
-
+        for (var i = 0; i < classname.length; i++) {
+            var element = document.getElementById(classname[i].id);
+            element.style.pointerEvents = "none";
+        }
         clearForNextGame();
     }
 
@@ -107,6 +113,7 @@ $(document).ready(function () {
             }
 
             winner = false;
+            moveCounter = 0;
             gameBoard = [
                 ["~", "~", "~"],
                 ["~", "~", "~"],
@@ -114,7 +121,6 @@ $(document).ready(function () {
             ];
 
             playableBoxes = [];
-
         }
     };
 
@@ -139,7 +145,7 @@ $(document).ready(function () {
         playableBoxes.splice(playableBoxes.indexOf(this.id), 1);
     }
 
-    var trackGame = function trackGame(clickedId) {
+    var trackGameMoves = function trackGameMoves(clickedId) {
         var column = "",
             row = "";
         for (var x in boardIds) {
