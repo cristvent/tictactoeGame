@@ -46,9 +46,18 @@
         </div>
         <div class="panel-body">
           <ul class="list-group">
-            <li class="list-group-item type-select" id="human-human-mode"><button class="btn"> Human Vs Human </button></li>
-            <li class="list-group-item type-select" id="human-cpu-mode"> <button class="btn"> Human Vs Computer </button></li>
-            <li class="list-group-item type-select" id="cpu-cpu-mode"> <button class="btn"> Computer Vs Computer </button></li>
+            <li class="list-group-item type-select">
+              Human vs Human
+              <span class="switch-holder"><button id="human-human-mode" class="btn btn-switch ">OFF</button> </span>
+            </li>
+            <li class="list-group-item type-select">
+              Human vs Computer
+              <span class="switch-holder"><button id="human-cpu-mode" class="btn btn-switch">OFF</button> </span>
+            </li>
+            <li class="list-group-item type-select">
+              Computer vs Computer
+              <span class="switch-holder"><button id="cpu-cpu-mode" class="btn btn-switch">OFF</button> </span>
+            </li>
           </ul>
           <button class="btn center-this" id="reset-game-btn"> Reset Game </button>
           <br>
@@ -107,6 +116,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
   <script src="/js/method2.js"></script>
+  <script src="/js/button-switches.js"></script>
 </body>
 
 </html>

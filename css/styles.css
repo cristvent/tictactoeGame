@@ -2,36 +2,55 @@ footer {
     text-align: center;
 }
 
-.center-this{
+.center-this {
     margin: 0px auto;
-
 }
 
-.score-card{
+.score-card {
     text-align: center;
     border: 1px solid #ddd;
 }
 
-.score-card h4{
+.score-card h4 {
+    font-weight: bold;
 }
 
-.score-card-num{
+.score-card-num {
     font-size: 40px;
     padding: 0px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     display: block;
 }
 
-#reset-game-btn{
+#reset-game-btn {
     margin-left: 15px;
 }
 
-.type-select{
-
+.switch-holder {
+    border: 1px solid #ddd;
+    background-color: #eee;
+    border-radius: 4px;
+    display: block;
+    width: 40%;
+    height: 30px;
 }
 
-.type-select:hover{
-    background-color: #e6e6e6;
+.switch-holder:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.btn-switch {
+    float: left;
+    height: 100%;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    font-size: smaller;
+    width: 50%;
 }
 
 .panel-body {
@@ -59,7 +78,7 @@ footer {
     overflow: hidden;
 }
 
-#score-history{
+#score-history {
     padding: 0px;
 }
 
@@ -91,12 +110,10 @@ footer {
         height: 120px;
         padding: 0px;
     }
-
-    #score-history{
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
+    #score-history {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     /*#game-area{
         margin: 0px auto;
         float: none;

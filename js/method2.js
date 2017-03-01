@@ -35,7 +35,6 @@ $(document).ready(function () {
         playableBoxes.push(classname[i].id);
     }
 
-
     humanCpuButton.addEventListener("click", function () {
         humanCpuMode = true;
     })
