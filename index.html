@@ -46,9 +46,9 @@
         </div>
         <div class="panel-body">
           <ul class="list-group">
-            <li class="list-group-item type-select"> Human Vs Human </li>
-            <li class="list-group-item type-select"> Human Vs Computer </li>
-            <li class="list-group-item type-select"> Computer Vs Computer </li>
+            <li class="list-group-item type-select" id="human-human-mode"><button class="btn"> Human Vs Human </button></li>
+            <li class="list-group-item type-select" id="human-cpu-mode"> <button class="btn"> Human Vs Computer </button></li>
+            <li class="list-group-item type-select" id="cpu-cpu-mode"> <button class="btn"> Computer Vs Computer </button></li>
           </ul>
           <button class="btn center-this" id="reset-game-btn"> Reset Game </button>
           <br>
@@ -85,14 +85,14 @@
             <h4> Score Area </h4>
           </div>
           <div class="panel-body">
-              <div class="col-xs-6 score-card">
-                <h4> Player - X </h4>
-                <span id="player-x" class="score-card-num well"> 0 </span>
-              </div>
-              <div class="col-xs-6 score-card">
-                <h4> Player - O </h4>
-                <span id="player-o" class="score-card-num well"> 0 </span>
-              </div>
+            <div class="col-xs-6 score-card">
+              <h4> X </h4>
+              <span id="player-x" class="score-card-num well"> 0 </span>
+            </div>
+            <div class="col-xs-6 score-card">
+              <h4> O </h4>
+              <span id="player-o" class="score-card-num well"> 0 </span>
+            </div>
           </div>
         </div>
       </div>
