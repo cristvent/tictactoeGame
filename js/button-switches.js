@@ -12,10 +12,25 @@ $(document).ready(function () {
         if (position == false) {
             element.parentElement.style.backgroundColor = "#5cb85c";
             element.innerText = "ON";
+            for (var x = 0; x < buttons.length; x++) {
+            var tempName = document.getElementById(buttons[x].id);
+            if (tempName.innerText == "OFF") {
+                tempName.style.color = "grey";
+                tempName.style.pointerEvents = "none";
+            }
+        }
         } else {
             element.parentElement.style.backgroundColor = "#eee";
-            element.innerText= "OFF";
+            element.innerText = "OFF";
+            for (var x = 0; x < buttons.length; x++) {
+            var tempName = document.getElementById(buttons[x].id);
+            if (tempName.innerText == "OFF") {
+                tempName.style.color = "black";
+                tempName.style.pointerEvents = "auto";
+            }
         }
+        }
+
         position = (position == false) ? true : false;
     }
 });

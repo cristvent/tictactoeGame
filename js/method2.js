@@ -16,6 +16,9 @@ $(document).ready(function () {
         winner = false,
         moveCounter = 0;
 
+
+    var gameModeSelected;
+
     var scoreX = 0,
         scoreO = 0;
 
@@ -30,30 +33,119 @@ $(document).ready(function () {
         ["~", "~", "~"]
     ];
 
-    for (var i = 0; i < classname.length; i++) {
-        classname[i].addEventListener('click', clickEvents, false);
-        playableBoxes.push(classname[i].id);
-    }
+    // for (var i = 0; i < classname.length; i++) {
+    //     classname[i].addEventListener('click', startGame, false);
+    //     playableBoxes.push(classname[i].id);
+    // }
 
-    humanCpuButton.addEventListener("click", function () {
-        humanCpuMode = true;
-    })
+    // humanCpuButton.addEventListener("click", function () {
+    //     humanCpuMode = true;
+    // })
 
-    function clickEvents() {
-        moveCounter++;
-        modifyBox(this);
-        trackGameMoves(this.id);
-        checkWinStatus();
+    // function clickEvents() {
+    // moveCounter++;
+    // modifyBox(this);
+    // trackGameMoves(this.id);
+    // checkWinStatus();
 
-        // Switch active letter after move
-        playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
-        if (moveCounter == 9) {
-            noWinners();
+    // // Switch active letter after move
+    // playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
+    // if (moveCounter == 9) {
+    //     noWinners();
+    // }
+
+    // if (humanCpuMode == true && playingLetter == "O" && winner == false) {
+    //     cpuTurnToPick();
+    // }
+    // };
+
+    var startButton = document.getElementById("testingThis");
+
+    startButton.addEventListener("click", function () {
+        getGameMode();
+
+        luanchGameMode();
+
+    });
+
+
+    var getGameMode = function getGameMode() {
+        var allButtons = document.getElementsByClassName("btn-switch");
+        for (var x = 0; x < allButtons.length; x++) {
+            var button = document.getElementById(allButtons[x].id)
+            if (button.innerText == "ON") {
+                gameModeSelected = button.id;
+            }
+        }
+    };
+
+    var luanchGameMode = function luanchGameMode() {
+        switch (gameModeSelected) {
+            case "human-cpu-mode":
+                humanCpuMode();
+                break;
+            case "cpu-cpu-mode":
+                cpuCpuMode();
+                break;
+            default:
+                humanHumanMode();
+                break;
+        }
+    };
+
+    var humanHumanMode = function humanHumanMode() {
+        for (var i = 0; i < classname.length; i++) {
+            classname[i].addEventListener('click', gameControl, false);
+            playableBoxes.push(classname[i].id);
         }
 
-        if (humanCpuMode == true && playingLetter == "O" && winner == false) {
-            cpuTurnToPick();
+        function gameControl() {
+            moveCounter++;
+            modifyBox(this);
+            trackGameMoves(this.id);
+            checkWinStatus();
+
+            playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
+            if (moveCounter == 9) {
+                noWinners();
+            }
         }
+    };
+
+    var humanCpuMode = function humanCpuMode() {
+        for (var i = 0; i < classname.length; i++) {
+            classname[i].addEventListener('click', gameControl, false);
+            playableBoxes.push(classname[i].id);
+        }
+
+        function gameControl() {
+            moveCounter++;
+            modifyBox(this);
+            trackGameMoves(this.id);
+            checkWinStatus();
+
+            playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
+            if (moveCounter == 9) {
+                noWinners();
+            }
+
+            if (playingLetter == "O" && winner == false) {
+                cpuTurnToPick();
+            }
+        }
+    };
+
+    var cpuCpuMode = function cpuCpuMode() {
+        for (var i = 0; i < classname.length; i++) {
+            playableBoxes.push(classname[i].id);
+        }
+        var intervalID = window.setInterval(myCallback, 800);
+
+        function myCallback() {
+            if (winner == false) {
+                cpuTurnToPick();
+            }
+        };
     };
 
     var cpuTurnToPick = function cpuTurnToPick() {
@@ -69,7 +161,9 @@ $(document).ready(function () {
             trackGameMoves(playableBoxes[randomSelection]);
             checkWinStatus();
             playableBoxes.splice(randomSelection, 1);
-            playingLetter = "X";
+
+            playingLetter = (playingLetter == "X") ? "O" : "X";
+
             if (moveCounter == 9) {
                 noWinners();
             }
