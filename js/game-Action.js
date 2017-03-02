@@ -16,13 +16,10 @@ $(document).ready(function () {
         winner = false,
         moveCounter = 0;
 
-
-    var gameModeSelected;
-
-    var scoreX = 0,
-        scoreO = 0;
-
-    var humanCpuMode = false;
+    var gameModeSelected,
+        scoreX = 0,
+        scoreO = 0,
+        humanCpuMode = false;
 
     scoreHolderX.innerText = scoreX;
     scoreHolderO.innerText = scoreO;
@@ -33,41 +30,11 @@ $(document).ready(function () {
         ["~", "~", "~"]
     ];
 
-    // for (var i = 0; i < classname.length; i++) {
-    //     classname[i].addEventListener('click', startGame, false);
-    //     playableBoxes.push(classname[i].id);
-    // }
-
-    // humanCpuButton.addEventListener("click", function () {
-    //     humanCpuMode = true;
-    // })
-
-    // function clickEvents() {
-    // moveCounter++;
-    // modifyBox(this);
-    // trackGameMoves(this.id);
-    // checkWinStatus();
-
-    // // Switch active letter after move
-    // playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
-    // if (moveCounter == 9) {
-    //     noWinners();
-    // }
-
-    // if (humanCpuMode == true && playingLetter == "O" && winner == false) {
-    //     cpuTurnToPick();
-    // }
-    // };
-
     var startButton = document.getElementById("testingThis");
-
     startButton.addEventListener("click", function () {
         getGameMode();
-
         luanchGameMode();
-
     });
-
 
     var getGameMode = function getGameMode() {
         var allButtons = document.getElementsByClassName("btn-switch");
@@ -104,7 +71,6 @@ $(document).ready(function () {
             modifyBox(this);
             trackGameMoves(this.id);
             checkWinStatus();
-
             playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
             if (moveCounter == 9) {
                 noWinners();
@@ -123,12 +89,10 @@ $(document).ready(function () {
             modifyBox(this);
             trackGameMoves(this.id);
             checkWinStatus();
-
             playingLetter = (playingLetter == "X") ? playingLetter = "O" : "X";
             if (moveCounter == 9) {
                 noWinners();
             }
-
             if (playingLetter == "O" && winner == false) {
                 cpuTurnToPick();
             }
@@ -154,16 +118,12 @@ $(document).ready(function () {
         function delayCpuMove() {
             moveCounter++;
             var randomSelection = Math.floor(Math.random() * (playableBoxes.length - 0)) + 0;
-            console.log(randomSelection);
             var element = document.getElementById(playableBoxes[randomSelection]);
-            console.log(element);
             element.innerText = playingLetter;
             trackGameMoves(playableBoxes[randomSelection]);
             checkWinStatus();
             playableBoxes.splice(randomSelection, 1);
-
             playingLetter = (playingLetter == "X") ? "O" : "X";
-
             if (moveCounter == 9) {
                 noWinners();
             }
@@ -181,7 +141,6 @@ $(document).ready(function () {
     }
 
     function gameOver(letter) {
-        // (letter == "O") ? scoreHolderO.innerText = ++scoreO: scoreHolderX.innerText = ++scoreX;
         if (letter == "O") {
             scoreHolderO.innerText = ++scoreO;
             scoreHolderO.style.color = "#5cb85c";
@@ -189,7 +148,6 @@ $(document).ready(function () {
             scoreHolderX.innerText = ++scoreX;
             scoreHolderX.style.color = "#5cb85c";
         }
-
         clickBoard.style.pointerEvents = "none";
         winner = true;
         for (var i = 0; i < classname.length; i++) {
@@ -229,10 +187,6 @@ $(document).ready(function () {
         gameBoard[column][row] = playingLetter;
     }
 
-    resetGame.addEventListener("click", function () {
-        location.reload();
-    });
-
     var clearForNextGame = function clearForNextGame() {
         var delayTime = window.setTimeout(delayClear, 2000);
 
@@ -244,7 +198,6 @@ $(document).ready(function () {
                 element.style.pointerEvents = "auto";
                 playableBoxes.push(classname[i].id);
             }
-
             winner = false;
             moveCounter = 0;
             gameBoard = [
@@ -258,7 +211,6 @@ $(document).ready(function () {
             for (var i = 0; i < classname.length; i++) {
                 playableBoxes.push(classname[i].id);
             }
-
             scoreHolderO.style.color = "black";
             scoreHolderX.style.color = "black";
         }
@@ -295,4 +247,8 @@ $(document).ready(function () {
             }
         }
     };
+
+    resetGame.addEventListener("click", function () {
+        location.reload();
+    });
 });
